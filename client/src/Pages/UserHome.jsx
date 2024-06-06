@@ -35,24 +35,16 @@ function Home({ colors }) {
   cookies.token = localStorage.getItem("utoken");
   useEffect(() => {
     const verifyCookies = async () => {
-      if (!cookies.token) {
-        navigate("/login");
-      }
       const { data } = await axios.post(
         "https://part-time-job-react-js.onrender.com",
         {},
         { withCredentials: true }
       );
       console.log(data,"data")
-      const { status } = data;
       setuserId(data.user._id);
       console.log(vendorProducts)
       setVendorProducts(data.vendorProducts);
-      return status
-        ? toast(`hello`, {
-            position: "top-right",
-          })
-        : (removeCookie("token"), navigate("/login"));
+
     };
    
     verifyCookies();
