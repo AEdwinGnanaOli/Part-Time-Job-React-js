@@ -11,7 +11,7 @@ function LoginUserData() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/login/userdata").then((user) => {
+    axios.get("https://part-time-job-react-js.onrender.com/login/userdata").then((user) => {
       setData(user.data.userDatas);
     });
     const datatable = $("#datatable").DataTable({
@@ -23,13 +23,13 @@ function LoginUserData() {
   }, [data]);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/login/userdata").then((user) => {
+    axios.get("https://part-time-job-react-js.onrender.com/login/userdata").then((user) => {
       setData(user.data.userDatas);
     });
   }, []);
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:3000/deletedetails/${id}`)
+      .delete(`https://part-time-job-react-js.onrender.com/deletedetails/${id}`)
       .then((user) => {
         window.location.reload();
       })
