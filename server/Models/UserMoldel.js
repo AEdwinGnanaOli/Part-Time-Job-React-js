@@ -1,6 +1,11 @@
 const mongoose = require('mongoose')
-const bcrypt=require('bcrypt')
-
+// const bcrypt=require('bcrypt')
+try {
+  require('bcrypt');
+  console.log('bcrypt module loaded successfully');
+} catch (err) {
+  console.error('Error loading bcrypt module:', err);
+}
 const UserSchema = new mongoose.Schema({
     name: String, email: String, phone: String, password: String, role: String
 })

@@ -12,7 +12,12 @@ const VendorSchema= new mongoose.Schema({
 })
   
   VendorSchema.pre("save", async function () {
-    this.password = await bcrypt.hash(this.password, 12);
+    try{
+      this.password = await bcrypt.hash(this.password, 12);
+    }catch(err){
+      console.log(err)
+    }
+   
   });
 
 const Vendormodel= mongoose.model('vendorData',VendorSchema, "usersData")
