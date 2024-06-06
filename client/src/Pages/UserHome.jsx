@@ -48,7 +48,7 @@ function Home({ colors }) {
     };
    
     verifyCookies();
-  }, [cookies, navigate, removeCookie]);
+  }, []);
  
   const handleUserUpdate = (id) => {
     navigate("/user/update", sessionStorage.setItem("uupdateid", id));
