@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const bcrypt=require('bcryptjs')
 
 const VendorSchema= new mongoose.Schema({
     name:String,
@@ -11,14 +10,7 @@ const VendorSchema= new mongoose.Schema({
     
 })
   
-  VendorSchema.pre("save", async function () {
-    try{
-      this.password = await bcrypt.hash(this.password, 12);
-    }catch(err){
-      console.log(err)
-    }
-   
-  });
+ 
 
 const Vendormodel= mongoose.model('vendorData',VendorSchema, "usersData")
 
