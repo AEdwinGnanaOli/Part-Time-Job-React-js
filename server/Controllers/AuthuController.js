@@ -73,7 +73,6 @@ module.exports.Login = async (req, res, next) => {
         const token = createSceretToken(user._id)
         res.cookie('token', token, {
             withCredentials: true,
-            httpOnly: false,
         })
         res.status(201).json({ message: 'Login Successfully', Status: "Success", success: true, user, token })
         next()

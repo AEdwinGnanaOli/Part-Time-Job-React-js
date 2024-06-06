@@ -42,7 +42,7 @@ function Home({ colors }) {
         {},
         { withCredentials: true }
       );
-      console.log(data)
+      console.log(data,"data")
       const { status } = data;
       setuserId(data.user._id);
       setVendorProducts(data.vendorProducts);
