@@ -45,7 +45,7 @@ function ProductSignIn() {
         <Container>
             <Row  >
                 <Col className="form-header">
-                    <Form className="signup-form" style={{ width: '25rem' }} onSubmit={handleSubmit(onSubmit)} >
+                    <Form className="signup-form product-from" style={{ width: '25rem' }} onSubmit={handleSubmit(onSubmit)} >
                         <h1 className="text-center">ProductRegister</h1>
                         <Col>
                             <Form.Group className="mb-3" >
