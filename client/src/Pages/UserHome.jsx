@@ -30,6 +30,7 @@ function Home({ colors }) {
   const [userId, setuserId] = useState();
   const [submitSuccess, setsubmitSuccess] = useState(false);
   const [vendorProducts, setVendorProducts] = useState([]);
+  console.log(vendorProducts)
   sessionStorage.setItem("userid", userId);
   cookies.token = localStorage.getItem("utoken");
   useEffect(() => {
@@ -45,6 +46,7 @@ function Home({ colors }) {
       console.log(data,"data")
       const { status } = data;
       setuserId(data.user._id);
+      console.log(vendorProducts)
       setVendorProducts(data.vendorProducts);
       return status
         ? toast(`hello`, {
