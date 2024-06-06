@@ -1,10 +1,12 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
+require('dotenv').config()
 const cookieParser=require('cookie-parser')
 const app = express()
+const {MONGO_URL,PORT}=process.env
 app.use(cors({
-    origin: ['http://localhost:5173'],
+    origin: ['https://peppy-lamington-9591dd.netlify.app/'],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
 }))
@@ -12,15 +14,15 @@ const authRouteUser=require('./Routes/AuthRoute')
 app.use(cookieParser());
 app.use(express.json())
 app.use(express.static('Assets'))
-const port = 3000;
+
 
 app.use('/',authRouteUser)
 
-mongoose.connect('mongodb://localhost:27017/Jobs').then((result) => {
+mongoose.connect(MONGO_URL).then((result) => {
     console.log('connect to mongoDB')
 }).catch((err) => {
     console.log(err)
 });
-app.listen(port, () => {
-    console.log('server is ruinng')
+app.listen(PORT, () => {
+    console.log(`server is ruinng${PORT}`)
 })
