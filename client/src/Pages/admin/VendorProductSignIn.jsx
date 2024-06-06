@@ -32,7 +32,7 @@ function ProductSignIn() {
                 if (user.data === "User already exists") {
                     throw new Error()
                 } else {
-                    navigate("/adminhome")
+                    navigate("/admin/layout")
                 }
             }).catch((err) => { console.log(err) })
 
